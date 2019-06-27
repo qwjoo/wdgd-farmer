@@ -5,7 +5,6 @@
         <!--列表-->
         <div class="page__bd">
           <div class="weui-panel weui-panel_access">
-            <!--<div class="weui-panel__hd">列表</div>-->
             <div class="weui-panel__bd">
               <block v-for="(item,index) in list" :key="index">
                 <div
@@ -17,70 +16,194 @@
                 >
                   <div class="weui-media-box__bd weui-media-box__bd_in-appmsg">
                     <div style="flex:1;display: flex;flex-direction: column;">
-                      <div class="row-item" style="line-height:34rpx;justify-content:space-between;">
-                      <div class="weui-media-box__title">{{item.title}}</div>
-                      <div class="weui-media-box__desc" v-if="item.isSigning">已报价：3</div>
+                      <div
+                        class="row-item"
+                        style="line-height:34rpx;justify-content:space-between;"
+                      >
+                        <div class="weui-media-box__title">{{item.title}}</div>
+                        <div class="weui-media-box__desc" v-if="item.isSigning">已报价：3</div>
+                      </div>
+                      <div class="row-item" style="justify-content:space-between;">
+                        <div class="weui-media-box__desc" style="color:#333;">{{item.mu}}亩 {{item.ground}}块地</div>
+                        <div class="weui-media-box__desc" style="color:#333;">65.00元/亩</div>
+                        <span
+                         
+                          v-if="!item.isSigning"
+                          @click="call(item.phone)"
+                        ><img src="/static/images/GroupCopy16.png" style="width:20px;height:20px;" alt=""> </span>
                       </div>
                       <div class="row-item">
-                        <div class="weui-media-box__desc" style="width: 300rpx;">{{item.mu}}亩 {{item.ground}}块地</div>
-                        <div class="weui-media-box__desc">65.00元/亩</div>
-                         <icon class="weui-icon-radio" type="success_no_circle" size="18" color="#BF0909"></icon>
+                        <div class="weui-media-box__desc" style="display:flex;">
+                          <i class="iconfont iconFillCopy" style="font-size:14px;color:#666666;"></i>
+                          <span>河北 | 唐山 | 乐亭县</span>
+                        </div>
                       </div>
                       <div class="height30"></div>
-                      <div  class="row-item">
-                        <div class="weui-media-box__desc">河北 | 唐山 | 乐亭县</div>
-                       
+                      <div class="row-item" style="justify-content:space-between;">
+                        <div class="weui-media-box__desc">2019-09-20 <span class="iconfont iconchufadaodaxiao" style="font-size:12rpx;color:#666;"></span> 2019-09-20</div>
+                        <div class="weui-media-box__desc pending-bid" v-if="item.isSigning">待中标</div>
+                        <div class="weui-media-box__desc pending-sign" v-if="!item.isSigning">等待农户签约</div>
                       </div>
                     </div>
                   </div>
-                  <div class="weui-cell__ft weui-cell__ft_in-access"></div>
+                  <!-- <div class="weui-cell__ft weui-cell__ft_in-access"></div> -->
                 </div>
               </block>
-
-              <!--<block v-for="(item1,index1) in listArray" :key="index1" >-->
-              <!--&lt;!&ndash;<navigator :url="/pages/scanCodeDetail/main">&ndash;&gt;-->
-              <!--<div @click="jump" :data-item="item1" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" style="border-bottom: #F0F0F0 2px solid;">-->
-              <!--<div style="width: 200rpx;">-->
-              <!--<div class="weui-media-box__bd weui-media-box__bd_in-appmsg">-->
-              <!--<div class="weui-media-box__title">AAAA1905140002</div>-->
-              <!--<div class="height30"></div>-->
-              <!--&lt;!&ndash;<block  v-for="(itemNode,indexNode) in nodes" :key="indexNode">&ndash;&gt;-->
-              <!--&lt;!&ndash;<div v-if='nodes[indexNode]==item1.node' class="weui-media-box__desc">AAAA1905140002</div>&ndash;&gt;-->
-              <!--&lt;!&ndash;</block>&ndash;&gt;-->
-              <!--&lt;!&ndash;<div class="weui-media-box__desc">{{item1.node}}</div>&ndash;&gt;-->
-              <!--</div>-->
-              <!--</div>-->
-              <!--<div class="weui-media-box__bd weui-media-box__bd_in-appmsg">-->
-              <!--<div class="weui-media-box__title">订单发起</div>-->
-              <!--<div class="height30"></div>-->
-              <!--<div class="weui-media-box__desc">2019-05-10 12：31：11</div>-->
-              <!--</div>-->
-              <!--<div class="weui-cell__ft weui-cell__ft_in-access"></div>-->
-              <!--</div>-->
-              <!--&lt;!&ndash;</navigator>&ndash;&gt;-->
-
-              <!--</block>-->
             </div>
-            <!--<div class="weui-panel__ft">-->
-            <!--<div class="weui-cell weui-cell_access weui-cell_link">-->
-            <!--<div class="weui-cell__bd">查看更多</div>-->
-            <!--<div class="weui-cell__ft weui-cell__ft_in-access"></div>-->
-            <!--</div>-->
-            <!--</div>-->
           </div>
         </div>
       </van-tab>
-      <van-tab title="已签约">内容 2</van-tab>
-      <van-tab title="已完成">内容 3</van-tab>
-      <van-tab title="已关闭">内容 4</van-tab>
+      <van-tab title="已签约">
+        <!--列表-->
+        <div class="page__bd">
+          <div class="weui-panel weui-panel_access">
+            <div class="weui-panel__bd">
+              <block v-for="(item,index) in list" :key="index">
+                <div
+                  @click="jump"
+                  :data-item="item"
+                  class="weui-media-box weui-media-box_appmsg"
+                  hover-class="weui-cell_active"
+                  style="border-bottom: #F0F0F0 2px solid;"
+                >
+                  <div class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                    <div style="flex:1;display: flex;flex-direction: column;">
+                      <div
+                        class="row-item"
+                        style="line-height:34rpx;justify-content:space-between;"
+                      >
+                        <div class="weui-media-box__title">{{item.title}}</div>
+                      </div>
+                      <div class="row-item" style="justify-content:space-between;">
+                        <div class="weui-media-box__desc" style="color:#333;">{{item.mu}}亩 {{item.ground}}块地</div>
+                        <div class="weui-media-box__desc" style="color:#333;">65.00元/亩</div>
+                        <span
+                          @click="call(item.phone)"
+                        ><img src="/static/images/GroupCopy16.png" style="width:20px;height:20px;" alt=""> </span>
+                      </div>
+                      <div class="row-item">
+                        <div class="weui-media-box__desc" style="display:flex;">
+                          <i class="iconfont iconFillCopy" style="font-size:14px;color:#666666;"></i>
+                          <span>河北 | 唐山 | 乐亭县</span>
+                        </div>
+                      </div>
+                      <div class="height30"></div>
+                      <div class="row-item" style="justify-content:space-between;">
+                        <div class="weui-media-box__desc">2019-09-20 <span class="iconfont iconchufadaodaxiao" style="font-size:12rpx;color:#666;"></span> 2019-09-20</div>
+                        <div class="weui-media-box__desc is-sign">已签约</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="weui-cell__ft weui-cell__ft_in-access"></div> -->
+                </div>
+              </block>
+            </div>
+          </div>
+        </div>
+      </van-tab>
+      <van-tab title="已完成">
+        <!--列表-->
+        <div class="page__bd">
+          <div class="weui-panel weui-panel_access">
+            <div class="weui-panel__bd">
+              <block v-for="(item,index) in list" :key="index">
+                <div
+                  @click="jump"
+                  :data-item="item"
+                  class="weui-media-box weui-media-box_appmsg"
+                  hover-class="weui-cell_active"
+                  style="border-bottom: #F0F0F0 2px solid;"
+                >
+                  <div class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                    <div style="flex:1;display: flex;flex-direction: column;">
+                      <div
+                        class="row-item"
+                        style="line-height:34rpx;justify-content:space-between;"
+                      >
+                        <div class="weui-media-box__title">{{item.title}}</div>
+                    
+                      </div>
+                      <div class="row-item" style="justify-content:space-between;">
+                        <div class="weui-media-box__desc" style="color:#333;">{{item.mu}}亩 {{item.ground}}块地</div>
+                        <div class="weui-media-box__desc" style="color:#333;">65.00元/亩</div>
+                        
+                      </div>
+                      <div class="row-item">
+                        <div class="weui-media-box__desc" style="display:flex;">
+                          <i class="iconfont iconFillCopy" style="font-size:14px;color:#666666;"></i>
+                          <span>河北 | 唐山 | 乐亭县</span>
+                        </div>
+                      </div>
+                      <div class="height30"></div>
+                      <div class="row-item" style="justify-content:space-between;">
+                        <div class="weui-media-box__desc">2019-09-20 <span class="iconfont iconchufadaodaxiao" style="font-size:12rpx;color:#666;"></span> 2019-09-20</div>
+                        <div class="weui-media-box__desc pending-bid" v-if="item.isSigning">待评价</div>
+                        <div class="weui-media-box__desc is-remark" v-if="!item.isSigning">已评价</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="weui-cell__ft weui-cell__ft_in-access"></div> -->
+                </div>
+              </block>
+            </div>
+          </div>
+        </div>
+      </van-tab>
+      <van-tab title="已关闭">
+        <!--列表-->
+        <div class="page__bd">
+          <div class="weui-panel weui-panel_access">
+            <div class="weui-panel__bd">
+              <block v-for="(item,index) in list" :key="index">
+                <div
+                  @click="jump"
+                  :data-item="item"
+                  class="weui-media-box weui-media-box_appmsg"
+                  hover-class="weui-cell_active"
+                  style="border-bottom: #F0F0F0 2px solid;"
+                >
+                  <div class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                    <div style="flex:1;display: flex;flex-direction: column;">
+                      <div
+                        class="row-item"
+                        style="line-height:34rpx;justify-content:space-between;"
+                      >
+                        <div class="weui-media-box__title">{{item.title}}</div>
+                      </div>
+                      <div class="row-item" style="justify-content:space-between;">
+                        <div class="weui-media-box__desc" style="color:#333;">{{item.mu}}亩 {{item.ground}}块地</div>
+                        <div class="weui-media-box__desc" style="color:#333;">65.00元/亩</div>
+                        
+                      </div>
+                      <div class="row-item">
+                        <div class="weui-media-box__desc" style="display:flex;">
+                          <i class="iconfont iconFillCopy" style="font-size:14px;color:#666666;"></i>
+                          <span>河北 | 唐山 | 乐亭县</span>
+                        </div>
+                      </div>
+                      <div class="height30"></div>
+                      <div class="row-item" style="justify-content:space-between;">
+                        <div class="weui-media-box__desc">2019-09-20 <span class="iconfont iconchufadaodaxiao" style="font-size:12rpx;color:#666;"></span> 2019-09-20</div>
+                        <div class="weui-media-box__desc is-remark">待中标</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="weui-cell__ft weui-cell__ft_in-access"></div> -->
+                </div>
+              </block>
+            </div>
+          </div>
+        </div>
+      </van-tab>
     </van-tabs>
+    <van-dialog id="van-dialog" />
   </div>
 </template>
 <script>
 import store from "../../store";
 import * as types from "@/store/mutation-type";
 import api from "@/http/api/api.js";
-// import Tabs from '~/vant/tabs/tabs';
+import Dialog from "~/vant/dialog/dialog";
 export default {
   data() {
     return {
@@ -89,17 +212,22 @@ export default {
     };
   },
   created() {
-    this.list.push({
-      title: "水稻全喂入收货",
-      mu: 5000,
-      ground:20,
-      isSigning:true,
-    },{
-      title: "水稻全喂入收货3",
-       mu: 5000,
-      ground:20,
-      isSigning:false,
-    });
+    this.list.push(
+      {
+        title: "水稻全喂入收货",
+        mu: 5000,
+        ground: 20,
+        isSigning: true,
+        phone: "18361230720",
+      },
+      {
+        title: "水稻全喂入收货3",
+        mu: 5000,
+        ground: 20,
+        isSigning: false,
+        phone: "18344717034",
+      }
+    );
   },
   onLoad() {},
   onShow() {},
@@ -124,27 +252,25 @@ export default {
         that.hasdeliever();
       }
     },
-    /**
-     * 工种页面跳转判断
-     */
 
     /**
      * 编辑头像图片
      */
-    changeImg() {
-      // const that = this;
-      // wx.chooseImage({
-      //     count: 1,
-      //     sizeType: ['original', 'compressed'],
-      //     sourceType: ['album', 'camera'],
-      //     success(res) {
-      //         var tempFilePaths = res.tempFilePaths;
-      //         upLoad(tempFilePaths,res=>{
-      //             // console.log('res',res)
-      //             that.user.imgSrc = res[0];
-      //         })
-      //     }
-      // })
+    call(phone) {
+      Dialog.confirm({
+        title: "提示",
+        message: `拨打电话${phone}`,
+        confirmButtonText: "是",
+        cancelButtonText: "否",
+      })
+        .then(() => {
+         wx.makePhoneCall({
+                phoneNumber: phone,
+            })
+        })
+        .catch(() => {
+          // on cancel
+        });
     }
   }
 };
@@ -156,11 +282,35 @@ export default {
   flex-direction: row;
   margin-top: 10rpx;
 }
-.height30{
+.height30 {
   width: 100%;
   height: 1px;
   background: #eee;
-  margin-top: 10rpx;
+  margin: 10rpx 0;
+}
+.pending-bid {
+  color: #f15b48;
+  border: 1px solid#F15B48;
+  padding: 1%;
+  border-radius: 2px;
+}
+.pending-sign {
+  color: #f9ab41;
+  border: 1px solid#F9AB41;
+  padding: 1%;
+  border-radius: 2px;
+}
+.is-sign{
+  color: #17A185;
+  border: 1px solid#17A185;
+  padding: 1%;
+  border-radius: 2px;
+}
+.is-remark {
+  color: #666;
+  border: 1px solid#666;
+  padding: 1%;
+  border-radius: 2px;
 }
 </style>
 
