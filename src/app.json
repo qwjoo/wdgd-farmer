@@ -2,18 +2,6 @@
     "pages": [
         "pages/hall/main",
         "pages/mine/main",
-        "pages/fillName/main",
-        "pages/scanCode/main",
-        "pages/scanCodeRecord/main",
-        "pages/changePhone/main",
-        "pages/confirmProfession/main",
-        "pages/profession/main",
-        "pages/changeProfession/main",
-        "pages/scanCodeDetail/main",
-        "pages/scanCodeResult/main",
-        "pages/index/main",
-        "pages/logs/main",
-        "pages/counter/main",
         "pages/order/main"
     ],
     "window": {
@@ -27,24 +15,24 @@
         "backgroundColor": "#fafafa",
         "selectedColor": "#333",
         "borderStyle": "white",
-
-        "list": [{
+        "list": [
+            {
                 "text": "大厅",
                 "pagePath": "pages/hall/main",
-                "iconPath": "static/tabs/scanOn.png",
-                "selectedIconPath": "static/tabs/scanOff.png"
+                "iconPath": "static/tabs/hallOff.png",
+                "selectedIconPath": "static/tabs/hallOn.png"
             },
             {
                 "text": "订单",
                 "pagePath": "pages/order/main",
-                "iconPath": "static/tabs/mineOn.png",
-                "selectedIconPath": "static/tabs/mineOff.png"
+                "iconPath": "static/tabs/orderOff.png",
+                "selectedIconPath": "static/tabs/orderOn.png"
             },
             {
                 "text": "我",
                 "pagePath": "pages/mine/main",
-                "iconPath": "static/tabs/mineOn.png",
-                "selectedIconPath": "static/tabs/mineOff.png"
+                "iconPath": "static/tabs/mineOff.png",
+                "selectedIconPath": "static/tabs/mineOn.png"
             }
         ],
         "position": "bottom"

@@ -1,9 +1,15 @@
+<!--
+ * @Description: file content
+ * @Author: chenchen
+ * @Date: 2019-06-27 13:49:01
+ * @LastEditTime: 2019-06-27 15:22:03
+ -->
 <template>
   <view id="mine">
     <view class="mine-head" @click='changeImg'>
       <!-- <open-data type="userAvatarUrl" class="user-img" v-if="user.imgSrc===''"></open-data> -->
       <!-- <image class="user-img" :src='user.imgSrc' v-if="user.imgSrc!==''"></image> -->
-      <image class="user-img" :src='user.imgSrc'></image>
+      <!-- <image class="user-img" :src='user.imgSrc'></image> -->
     </view>
     <view class="mine-name">
       <label>{{user.name}}</label>
@@ -100,7 +106,7 @@
           }else{
             that.user.profession = res.roleName;
           }
-          that.user.imgSrc = '/static/images/moren.png'
+          // that.user.imgSrc = '/static/images/moren.png'
           // switch(res.jobScopes){
           //   case'0': that.user.imgSrc = '/static/images/moren.png'
           //     break;
