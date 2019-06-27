@@ -1,0 +1,6 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "扫码记录",
+  "usingComponents": {
+  }
+}

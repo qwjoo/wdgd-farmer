@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "输入姓名",
+    "usingComponents": {
+        "van-icon": "/static/vant/icon/index"
+    }
+}
