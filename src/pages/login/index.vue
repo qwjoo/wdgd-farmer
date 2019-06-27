@@ -1,44 +1,12 @@
+<!--
+ * @Description: file content
+ * @Author: chenchen
+ * @Date: 2019-06-27 13:49:01
+ * @LastEditTime: 2019-06-27 15:17:37
+ -->
 <template>
     <view id="login">
-        <image class="loginBg" src="/static/images/loginBg.png"></image>
-        <view class="logo">
-            <image class="logo-img" src="/static/images/logo1.png" />
-        </view>
-        <!-- <view class="row-class">
-            <view class="user">
-                <image class="user-img" src="/static/images/login_user.png" />
-            </view>
-            <input class="input-class" :value="user.userCode" @input="getCode" placeholder="请输入工号" placeholder-class="input-placeholder">
-        </view> -->
-      <view class="row-class">
-        <view class="inputBg" style="flex: 1;">
-          <input class="input-class" :value="user.userCode" @input="getCode" placeholder="请输入企业编号" placeholder-style="color:#fff;">
-        </view>
-      </view>
-        <view class="row-class">
-            <view class="inputBg" style="flex: 1;">
-              <input class="input-class" :value="user.phoneNumber" @input="getPhone" placeholder="请输入手机号" placeholder-style="color:#fff;">
-            </view>
-        </view>
-        <view class="row-class">
-            <!--<view class="password">-->
-                <!--<image class="password-img" src="/static/images/login_password.png" />-->
-            <!--</view>-->
-          <view class="inputBg" style="flex: 1;">
-            <input class="input-class" type="number" :value="user.captChasCode" @input="getYzm" placeholder="请输入验证码" placeholder-style="color:#fff;">
-          </view>
-            <view class="message">
-              <button v-if="nullHouse" type="warn" class="login-btn" @click="getMessage">{{btnMessage}}</button>
-              <button v-if="!nullHouse" type="warn" class="login-btn" disabled>{{second}}s后重新获取</button>
-            </view>
-        </view>
-        <view class="row-btn">
-            <button type="warn" class="login-btn" @click="login">登录</button>
-        </view>
-        <!--<view class="row-tip">-->
-            <!--<label class="tip-head">手机号不可用？联系管理员修改：<span class="tip-number" @click="call">{{telNumber}}</span></label>-->
-        <!--</view>-->
-        <van-toast id="van-toast" />
+  
     </view>
 </template>
 
