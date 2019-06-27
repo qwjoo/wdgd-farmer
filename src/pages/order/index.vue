@@ -190,7 +190,6 @@
                     </div>
                   </div>
                   <!-- <div class="weui-cell__ft weui-cell__ft_in-access"></div> -->
-                  <!-- <div class="weui-cell__ft weui-cell__ft_in-access"></div> -->
 
                 </div>
               </block>
