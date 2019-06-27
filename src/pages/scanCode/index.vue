@@ -1,3 +1,9 @@
+<!--
+ * @Description: file content
+ * @Author: chenchen
+ * @Date: 2019-06-24 09:52:09
+ * @LastEditTime: 2019-06-27 10:21:40
+ -->
 <template>
   <div id="scanCode">
     <camera class="camera" :flash='light' mode='scanCode' @scancode='scanSuccess'>
@@ -18,6 +24,8 @@
       </cover-view>
     </camera>
   </div>
+
+
 
 </template>
 
