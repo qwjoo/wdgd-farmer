@@ -1,3 +1,9 @@
+<!--
+ * @Description: 全局
+ * @Author: chenchen
+ * @Date: 2019-06-24 09:52:09
+ * @LastEditTime: 2019-06-27 13:40:03
+ -->
 <script>
 export default {
   created () {
@@ -31,6 +37,7 @@ export default {
 </script>
 
 <style>
+@import url('./../static/fonts/iconfont/iconfont.css');
 .container {
   height: 100%;
   display: flex;
