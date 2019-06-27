@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "订单",
+    "usingComponents": {
+        "van-cell": "/static/vant/cell/index",
+        "van-cell-group": "/static/vant/cell-group/index",
+        "van-tabs": "/static/vant/tabs/index",
+        "van-tab": "/static/vant/tab/index",
+        "van-list": "/static/vant/tab/index"
+    }
+}
