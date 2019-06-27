@@ -30,7 +30,7 @@
                          
                           v-if="!item.isSigning"
                           @click="call(item.phone)"
-                        ><img src="/static/images/GroupCopy16.png" style="width:20px;height:20px;" alt=""> </span>
+                        ><img src="cloud://wdgd-bxkj5.7764-wdgd-bxkj5/wdgd-img/Group Copy 16.png" style="width:20px;height:20px;" alt=""> </span>
                       </div>
                       <div class="row-item">
                         <div class="weui-media-box__desc" style="display:flex;">
@@ -79,7 +79,7 @@
                         <div class="weui-media-box__desc" style="color:#333;">65.00元/亩</div>
                         <span
                           @click="call(item.phone)"
-                        ><img src="/static/images/GroupCopy16.png" style="width:20px;height:20px;" alt=""> </span>
+                        ><img src="cloud://wdgd-bxkj5.7764-wdgd-bxkj5/wdgd-img/Group Copy 16.png" style="width:20px;height:20px;" alt=""> </span>
                       </div>
                       <div class="row-item">
                         <div class="weui-media-box__desc" style="display:flex;">
@@ -214,7 +214,25 @@ export default {
     };
   },
   created() {
-    this.list.push(
+      
+  },
+  onLoad() {
+    this.getInfo();
+  },
+  onShow() {},
+  // 下拉刷新事件
+  onPullDownRefresh() {
+    wx.hideNavigationBarLoading()
+    wx.stopPullDownRefresh()
+  },
+  methods: {
+    /**
+     * 获取用户信息
+     */
+    getInfo() {
+      wx.hideNavigationBarLoading()
+      wx.stopPullDownRefresh()
+      this.list.push(
       {
         title: "水稻全喂入收货",
         mu: 5000,
@@ -228,15 +246,30 @@ export default {
         ground: 20,
         isSigning: false,
         phone: "18344717034",
+      },{
+        title: "水稻全喂入收货3",
+        mu: 5000,
+        ground: 20,
+        isSigning: false,
+        phone: "18344717034",
+      },
+      {
+        title: "水稻全喂入收货3",
+        mu: 5000,
+        ground: 20,
+        isSigning: false,
+        phone: "18344717034",
       }
-    );
-  },
-  onLoad() {},
-  onShow() {},
-  methods: {
-    /**
-     * 获取用户信息
-     */
+    )
+
+    },
+    jump(e){
+        var item = e.currentTarget.dataset.item
+        console.log(item)
+        wx.navigateTo({
+          url:'/pages/orderDetail/main?item='+JSON.stringify(item)
+        })
+      },
 
     handleClick(e) {
       var that = this;

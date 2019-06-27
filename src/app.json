@@ -2,7 +2,8 @@
     "pages": [
         "pages/hall/main",
         "pages/mine/main",
-        "pages/order/main"
+        "pages/order/main",
+        "pages/orderDetail/main"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -15,8 +16,7 @@
         "backgroundColor": "#fafafa",
         "selectedColor": "#333",
         "borderStyle": "white",
-        "list": [
-            {
+        "list": [{
                 "text": "大厅",
                 "pagePath": "pages/hall/main",
                 "iconPath": "static/tabs/hallOff.png",
