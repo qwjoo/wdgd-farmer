@@ -2,7 +2,7 @@
  * @Description: file content
  * @Author: chenchen
  * @Date: 2019-06-27 13:49:01
- * @LastEditTime: 2019-06-27 15:22:03
+ * @LastEditTime: 2019-06-27 16:16:47
  -->
 <template>
   <view id="mine">
@@ -80,7 +80,7 @@
 
     },
     onShow(){
-      this.getInfo()
+      // this.getInfo()
     },
     methods: {
       /**
