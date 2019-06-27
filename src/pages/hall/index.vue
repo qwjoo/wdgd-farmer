@@ -2,7 +2,7 @@
  * @Description: 大厅 
  * @Author: chenchen
  * @Date: 2019-06-25 15:53:43
- * @LastEditTime: 2019-06-27 09:35:31
+ * @LastEditTime: 2019-06-27 13:39:20
  -->
 <template>
   <div id="hall">
@@ -25,7 +25,52 @@
     </div>
     <!-- 推荐机手 -->
     <div class="recommend">
-        <image class="icon" src="/static/images/iconDefault.png" />
+      <i
+       class="iconfont iconicon-test12"
+      />
+      <span>推荐机手</span>
+    </div>
+    <!-- 列表 -->
+    <div class="list-c">
+      <div
+        v-for="(item, index) in items"
+        :key="index"
+        class="item-b"
+      >
+        <header class="hall-item-header">
+            
+          <image
+            :src="item.avatar"
+            class="avatar"
+          />
+
+          <div class="header-right">
+            <div class="h-r-t">{{item.title}}</div>
+            <div class="h-r-b">
+              <div>{{item.man}}</div>
+              <div class="price-b">
+                <span class="price">{{item.price}}</span>
+                <span class="unit">元/亩</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="desc">
+            <div>
+                {{item.desc}}
+            </div>
+        </section>
+        <footer class="location-b">
+            <div class="location">
+                
+            </div>
+            <div>
+                <span>{{item.distance}}</span>
+                <span>公里</span>
+            </div>
+        </footer>
+      </div>
     </div>
   </div>
 </template>
@@ -35,7 +80,23 @@ import store from "../../store";
 
 export default {
   data() {
-    return {};
+    return {
+      items: [
+        {
+          avatar: "/static/images/iconDefault.png",
+          title: "水稻全喂入收获",
+          man: "机手王",
+          isVertify: true,
+          price: 65.0,
+          desc:
+            "本社有10台先进收割机麦豆玉米高粱水稻等收，寻求种植大户，欢迎各位老板合作",
+          distance: "292.75",
+          province: "安徽",
+          city: "阜阳",
+          region: "xxx"
+        }
+      ]
+    };
   }
 };
 </script>
@@ -68,17 +129,64 @@ export default {
   background: #999;
   margin: 10px 0px;
 }
-.recommend{
-    background: #eee;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.recommend {
+  background: #eee;
+  height: 35px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
-.icon{
-    height: 17px;
-    width: 17px;
+.icon {
+  height: 17px;
+  width: 17px;
+  margin-left: 16px;
+  margin-right: 9px;
+  color: #333333;
+}
 
+.list-c {
+  .item-b {
+      background-color: #fff;
+    .hall-item-header {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 12.3px 16px 11.3px;
+      .avatar {
+        height: 40px;
+        width: 40px;
+        // margin-left: 16px;
+        margin-right: 9px;
+        color: #333333;
+      }
+      .header-right {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          .h-r-b{
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              .price-b{
+                //   margin-right: 16px;
+                  .price{
+                      color: #EC2323;
+                      font-size: 15px;
+                  }
+                  .unit{
+
+                  }
+              }
+          }
+      }
+    }
+    .desc{
+        margin: 0px 16px 10.7px;
+    }
+    .location-b{
+        border-top: 1px solid #999
+    }
+  }
 }
 </style>
 
