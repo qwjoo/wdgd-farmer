@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/findman/main",
         "pages/hall/main",
         "pages/mine/main",
         "pages/order/main"

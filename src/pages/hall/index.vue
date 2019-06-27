@@ -2,7 +2,7 @@
  * @Description: 大厅 
  * @Author: chenchen
  * @Date: 2019-06-25 15:53:43
- * @LastEditTime: 2019-06-27 15:44:06
+ * @LastEditTime: 2019-06-27 16:59:16
  -->
 <template>
   <div id="hall">
@@ -18,7 +18,7 @@
       <div class="hall-o-b">
         <div class="location"> <span class="iconfont iconFillCopy" /> <span>{{"镇江市京口区"}}</span> </div>
         <div class="line"></div>
-        <div class="find"> <span class="iconfont iconicon-test2" /> <span>{{"找机手"}}</span> </div>
+        <div @click="findMan" class="find"> <span class="iconfont iconicon-test2" /> <span>{{"找机手"}}</span> </div>
         <div class="line"></div>
         <div class="send"><span class="iconfont iconziyuan" /> <span>{{"发需求"}}</span> </div>
       </div>
@@ -45,7 +45,10 @@
           <div class="header-right">
             <div class="h-r-t">{{item.title}}</div>
             <div class="h-r-b">
-              <div>{{item.man}}</div>
+              <div class="man-already-vertify"> 
+                <div>{{item.man}}</div>
+                <div class="already-vertify">认证</div>
+              </div>
               <div class="price-b">
                 <span class="price">{{item.price}}</span>
                 <span class="unit">元/亩</span>
@@ -62,11 +65,11 @@
         <footer class="location-b">
           <div class="location">
             <span class="iconfont iconFillCopy"></span>
-            <span>{{item.province}}</span>
-            <div class="line"></div>
-            <span>{{item.city}}</span>
-             <div class="line"></div>
-            <span>{{item.region}}</span>
+            <span class="province">{{item.province}}</span>
+            <div class="line location-line"></div>
+            <span class="city">{{item.city}}</span>
+            <div class="line location-line"></div>
+            <span class="region">{{item.region}}</span>
           </div>
           <div>
             <span>{{item.distance}}</span>
@@ -97,10 +100,28 @@ export default {
           province: "安徽",
           city: "阜阳",
           region: "xxx"
+        },
+         {
+          avatar: "/static/images/iconDefault.png",
+          title: "水稻全喂入收获",
+          man: "机手王",
+          isVertify: true,
+          price: 65.0,
+          desc:
+            "本社有10台先进收割机麦豆玉米高粱水稻等收，寻求种植大户，欢迎各位老板合作",
+          distance: "292.75",
+          province: "安徽",
+          city: "阜阳",
+          region: "xxx"
         }
       ]
     };
-  }
+  },
+  methods: {
+    findMan(){
+      wx.navigateTo({ url: '/pages/findman/main' });
+    }
+  },
 };
 </script>
 
@@ -113,7 +134,7 @@ export default {
 }
 .banner {
   height: 181px;
- width: 100%;
+  width: 100%;
 }
 .hall-o-c {
   height: 50px;
@@ -141,10 +162,10 @@ export default {
     }
 
     .iconicon-test2 {
-      color: #F9AB41
+      color: #f9ab41;
     }
-    .iconziyuan{
-      color: #3499DB
+    .iconziyuan {
+      color: #3499db;
     }
   }
 }
@@ -172,6 +193,7 @@ export default {
 .list-c {
   .item-b {
     background-color: #fff;
+    margin-bottom: 6px;
     .hall-item-header {
       display: flex;
       justify-content: flex-start;
@@ -192,6 +214,17 @@ export default {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          .man-already-vertify{
+            display: flex;
+          }
+          .already-vertify{
+            background: #F9AB41;
+            border-radius: 2px;
+            color: #fff;
+            margin-left: 5px;
+            font-size: 12px;
+            padding: 0.4px 3px;
+          }
           .price-b {
             //   margin-right: 16px;
             .price {
@@ -210,8 +243,20 @@ export default {
     .location-b {
       border-top: 1px solid #999;
       display: flex;
-      .location{
+      padding: 8.3px 16px;
+      color: #666666;
+      justify-content: space-between;
+      .location {
         display: flex;
+       .location-line{
+         margin: 4px 0;
+        }
+        .province,
+        .city,
+        .region {
+          padding-left: 8px;
+          padding-right: 8px;
+        }
       }
     }
   }
