@@ -12,82 +12,98 @@
     </div>
     <div class="weui-cells">
       <div class="weui-cell">
-        <div class="weui-cell__bd">
-          <p>农户姓名</p>
+        <div class="weui-cell__b">
+          <p class="tit">农户姓名</p>
         </div>
         <div class="weui-cell__ft">说明文字</div>
       </div>
        <div class="weui-cell">
-        <div class="weui-cell__bd">
-          <p>作业类型</p>
+        <div class="weui-cell__b">
+          <p class="tit">作业类型</p>
         </div>
         <div class="weui-cell__ft">说明文字</div>
       </div>
        <div class="weui-cell">
-        <div class="weui-cell__bd">
-          <p>农户备注</p>
+        <div class="weui-cell__b">
+          <p class="tit">农户备注</p>
         </div>
         <div class="weui-cell__ft">说明文字</div>
       </div>
       <div class="weui-cell">
-        <div class="weui-cell__bd">
-          <p>作业地点</p>
+        <div class="weui-cell__b">
+          <p class="tit">作业地点</p>
         </div>
         <div class="weui-cell__ft">说明文字</div>
       </div>
       <div class="weui-cell">
-        <div class="weui-cell__bd">
-          <p>作业亩数</p>
+        <div class="weui-cell__b">
+          <p class="tit">作业亩数</p>
         </div>
         <div class="weui-cell__ft">说明文字</div>
       </div>
       <div class="weui-cell">
-        <div class="weui-cell__bd">
-          <p>作业地块数</p>
+        <div class="weui-cell__b">
+          <p class="tit">作业地块数</p>
         </div>
         <div class="weui-cell__ft">说明文字</div>
       </div>
       <div class="weui-cell">
-        <div class="weui-cell__bd">
-          <p>每亩期望价格</p>
+        <div class="weui-cell__b">
+          <p class="tit">每亩期望价格</p>
         </div>
         <div class="weui-cell__ft">说明文字</div>
       </div>
       <div class="weui-cell">
-        <div class="weui-cell__bd">
-          <p>需要机器数量</p>
+        <div class="weui-cell__b">
+          <p class="tit">需要机器数量</p>
         </div>
         <div class="weui-cell__ft">说明文字</div>
       </div>
       <div class="weui-cell">
-        <div class="weui-cell__bd">
-          <p>作业时间</p>
+        <div class="weui-cell__b">
+          <p class="tit">作业时间</p>
+        </div>
+        <div class="weui-cell__ft">说明文字</div>
+      </div>
+       <div class="weui-cell">
+        <div class="weui-cell__b">
+          <p class="tit">作业时间</p>
+        </div>
+        <div class="weui-cell__ft">说明文字</div>
+      </div>
+       <div class="weui-cell">
+        <div class="weui-cell__b">
+          <p class="tit">作业时间</p>
+        </div>
+        <div class="weui-cell__ft">说明文字</div>
+      </div>
+       <div class="weui-cell">
+        <div class="weui-cell__b">
+          <p class="tit">作业时间</p>
         </div>
         <div class="weui-cell__ft">说明文字</div>
       </div>
     </div>
 
-     <template slot="sku-actions" slot-scope="props">
-    <div class="van-sku-actions">
-      <van-button
-        square
-        size="large"
-        type="warning"
-        @click="onPointClicked"
-      >
-        积分兑换
-      </van-button>
-      <!-- 直接触发 sku 内部事件，通过内部事件执行 onBuyClicked 回调 -->
-      <van-button
-        square
-        size="large"
-        type="danger"
-        @click="props.skuEventBus.$emit('sku:buy')"
-      >
-        买买买
-      </van-button>
-    </div>
-  </template>
+      <!-- <div class="weui-footer">
+  <p class="weui-footer__text">Copyright © 2008-2016 weui.io</p>
+</div> -->
+<div class="weui-form-preview__ft">
+    <button class="weui-form-preview__btn weui-form-preview__btn_default" style="background:#fff;color:#F15B48;width:30%;flex:none;" @click="closeOrder()">关闭订单</button>
+    <button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary" style="background:#F15B48;color:#fff;width:70%;flex:none;">选择中标机手（23人报价）</button>
+  </div>
+
+
+  <van-dialog
+  v-model="show"
+  title="标题"
+  show-cancel-button
+  :beforeClose="beforeClose"
+  id="van-dialog"
+>
+<div>123</div>
+  <!-- <img src="https://img.yzcdn.cn/1.jpg"> -->
+</van-dialog>
   </div>
 </template>
 <script>
@@ -99,7 +115,8 @@ export default {
   data() {
     return {
       active: 1,
-      list: []
+      list: [],
+      show:false,
     };
   },
   created() {
@@ -141,6 +158,12 @@ export default {
         .catch(() => {
           // on cancel
         });
+    },
+    closeOrder() {
+      
+      this.show = !this.show;
+      console.log(this.show);
+     
     }
   }
 };
@@ -159,6 +182,14 @@ export default {
 }
 /deep/ .weui-cells{
   margin-top: .5em;
+}
+.ft{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.tit{
+  width: 250rpx;
 }
 </style>
 
